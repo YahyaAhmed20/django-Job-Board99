@@ -2,7 +2,7 @@ job:
     title
     location
     job tybe
-    descriptio
+    description
     published at 
     Vacancy
     category
