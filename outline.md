@@ -5,11 +5,12 @@ job:
     description
     published at 
     Vacancy
+    salary
     category
     experince 
-    gender
     Salary
-    Job Nature
+
+    
     apply job 
     post job  
 
