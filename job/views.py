@@ -5,5 +5,5 @@ from django.shortcuts import render
 def jop_list(request):
     pass
 
-def jop_detail(request):
+def jop_detail(request,id):
     pass
