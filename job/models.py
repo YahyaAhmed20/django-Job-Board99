@@ -1,7 +1,3 @@
-from email.policy import default
-from pickle import TRUE
-from random import choices
-from unicodedata import name
 from django.db import models
 
 # Create your models here.
@@ -28,4 +24,5 @@ class Job(models.Model):
 
 
     
-
+    
+    
