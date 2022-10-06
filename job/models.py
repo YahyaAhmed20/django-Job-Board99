@@ -1,3 +1,4 @@
+from unicodedata import category
 from django.db import models
 
 # Create your models here.
@@ -7,7 +8,6 @@ JOB_TYPE=(
     ('Part Time','Part Time'),
 )
 
-    
 class Job(models.Model):
     title=models.CharField(max_length=100)
     job_tybe=models.CharField(max_length=15,choices=JOB_TYPE)
@@ -16,14 +16,13 @@ class Job(models.Model):
     Vacancy=models.IntegerField(default=1)
     salary=models.IntegerField(default=0)
     experince=models.IntegerField(default=1)
+    category=models.ForeignKey('Category',on_delete=models.CASCADE,blank=True)
+    
+    
     def __str__(self): 
         return self.title
-
-    
-
-    
-
-
-
-    
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+    def __str__(self): 
+        return self.name
     
