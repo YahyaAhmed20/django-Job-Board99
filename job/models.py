@@ -7,7 +7,7 @@ JOB_TYPE=(
     ('Part Time','Part Time'),
 )
 
-
+    
 class Job(models.Model):
     title=models.CharField(max_length=100)
     job_tybe=models.CharField(max_length=15,choices=JOB_TYPE)
@@ -20,11 +20,10 @@ class Job(models.Model):
         return self.title
 
     
-    def __str__(self):
-        return self.nameS
+
     
 
 
-    
+
     
     
