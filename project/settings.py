@@ -32,27 +32,33 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+   
+    'accounts',
+    'django_forms_bootstrap',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    # my apps
-    'accounts',
+    "phonenumber_field",
+    ## my apps
+    'django_filters',
+    "bootstrap4",
     'blog',
     'contact',
     'job',
     'home',
+    'rest_framework',
+    
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -62,7 +68,7 @@ ROOT_URLCONF = 'project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,7 +131,26 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
+if DEBUG:
+    STATICFILES_DIRS =os.path.join(BASE_DIR, 'static'),
+else:
+   STATIC_ROOT=os.path.join(BASE_DIR,'static')
+   BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+MEDIA_URL='media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+
+## email 
+
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_HOST_USER ='yahmdh6@gmail.com'
+EMAIL_HOST_PASSWORD='lyfsaxnkhpyfyfyv'
+EMAIL_USE_TLS =True
+EMAIL_PORT= 587
+# # Default primary key field type
+# # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
+
+# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
